@@ -44,9 +44,9 @@ describe('models/applicant.js', () => {
         result = prep.then(() => applicant.all());
       });
 
-      it('returns a promise', () => result.should.be.an.instanceof(Promise));
+      it('returns a promise', () => applicant.all().should.be.an.instanceof(Promise));
       it('resolves to an array', () => result.should.eventually.be.an.instanceof(Array));
-      it('resolves to an array containing the objects', () => result.should.eventually.equal([one, two, three]));
+      it('resolves to an array containing the objects', () => result.should.eventually.eql([one, two, three]));
     });
   });
 
@@ -65,7 +65,7 @@ describe('models/applicant.js', () => {
 
       it('returns a promise', () => result.should.be.an.instanceof(Promise));
       it('resolves to nothing', () => result.should.eventually.equal(undefined));
-      it('empties the model', () => probe.should.eventually.equal([]));
+      it('empties the model', () => probe.should.eventually.eql([]));
     });
   });
 
@@ -148,7 +148,7 @@ describe('models/applicant.js', () => {
         });
 
         it('resolves to an array of results', () => result.should.eventually.be.an.instanceof(Array));
-        it('resolves to an empty array', () => result.should.eventually.equal([]));
+        it('resolves to an empty array', () => result.should.eventually.eql([]));
       });
     });
   });
@@ -167,7 +167,7 @@ describe('models/applicant.js', () => {
 
     describe('when called with two arguments', () => {
       describe('and the first is not an integer', () => {
-        it('throws an exception', () => expect(() => applicant.set('foo')).to.throw(TypeError));
+        it('throws an exception', () => expect(() => applicant.set('foo', {})).to.throw(TypeError));
       });
 
       describe('and the first is an integer', () => {
@@ -177,7 +177,7 @@ describe('models/applicant.js', () => {
           id = 0;
           object = { fun: 'set' };
           result = applicant.set(id, object);
-          probe = result.then(() => application.get(id));
+          probe = result.then(() => applicant.get(id));
         });
 
         it('returns a promise', () => result.should.be.an.instanceof(Promise));

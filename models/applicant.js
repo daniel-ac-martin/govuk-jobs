@@ -7,17 +7,64 @@ let store = [];
 const addId = applicant => id => _.extend({id: id}, store[id]);
 
 module.exports = {
-  add: (applicant) => new Promise((resolve, reject) => resolve(store.push(applicant))),
+  add: (applicant) => {
+    if (applicant === undefined) {
+      throw new ReferenceError;
+    }
 
-  get: (id) => new Promise((resolve, reject) => resolve(addId(store[id])(id))),
+    return new Promise((resolve, reject) => {
+      store.push(applicant);
+      resolve();
+    });
+  },
 
-  search: (terms) => new Promise((resolve, reject) => {
-    const results = store
-      .map(addId)
-      .filter(_.isSuperset(terms));
+  all: () => new Promise((resolve, reject) => resolve([...store])),
 
-    resolve(results)
+  empty: () => new Promise((resolve, reject) => {
+    store = [];
+    resolve();
   }),
 
-  set: (id, applicant) => new Promise((resolve, reject) => resolve(store[id] = applicant))
+  get: (id) => {
+    if (id === undefined) {
+      throw new ReferenceError;
+    } else if (!Number.isInteger(id)) {
+      throw new TypeError;
+    }
+
+    return new Promise((resolve, reject) => {
+      const result = store[id];
+      result === undefined
+        ? reject(new ReferenceError)
+        : resolve(store[id]);
+    });
+  },
+
+  search: (terms) => {
+    if (terms === undefined) {
+      throw new ReferenceError;
+    }
+
+    return new Promise((resolve, reject) => {
+      const results = store
+        .filter(_.matches(terms));
+
+      resolve(results)
+    });
+  },
+
+  set: (id, applicant) => {
+    if (id === undefined) {
+      throw new ReferenceError;
+    } else if (applicant === undefined) {
+      throw new ReferenceError;
+    } else if (!Number.isInteger(id)) {
+      throw new TypeError;
+    }
+
+    return new Promise((resolve, reject) => {
+      store[id] = applicant;
+      resolve();
+    });
+  }
 };
