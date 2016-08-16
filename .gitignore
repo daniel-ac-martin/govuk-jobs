@@ -1,6 +1,7 @@
 node_modules
 public
 coverage
+npm-debug.log
 .dockerignore
 .editorconfig
 .eslintrc
