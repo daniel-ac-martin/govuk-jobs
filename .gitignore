@@ -1,0 +1,10 @@
+node_modules
+public
+coverage
+.dockerignore
+.editorconfig
+.eslintrc
+.eslintignore
+.jscsrc
+.npmignore
+.travis.yml
