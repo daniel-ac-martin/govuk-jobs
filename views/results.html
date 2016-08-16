@@ -1,0 +1,41 @@
+{{<layout}}
+
+{{$journeyHeader}}
+  {{#t}}search.header{{/t}}
+{{/journeyHeader}}
+
+{{$propositionHeader}}
+  {{> partials-navigation}}
+{{/propositionHeader}}
+
+{{$header}}
+  {{#count}}{{count}} records found for{{/count}}
+  {{^count}}No records found for{{/count}}
+  {{#query}}
+    {{search}}
+  {{/query}}
+{{/header}}
+
+{{$maincontent}}
+  {{> partials-maincontent}}
+{{/maincontent}}
+
+{{$content}}
+  <ul id="records">
+    {{#records}}
+    <li>
+      <article>
+        <a href="/applicant/{{id}}?{{querystring}}&amp;multipleResults">
+          <h2>{{name}}</h2>
+        </a>
+      </article>
+    </li>
+    {{/records}}
+  </ul>
+  <div class="buttons">
+    <a id="newSearchLink" href="/" class="button">New search</a>
+    <a id="editSearchLink" href="/?edit&amp;{{querystring}}" class="blue button">Edit search</a>
+  </div>
+{{/content}}
+
+{{/layout}}

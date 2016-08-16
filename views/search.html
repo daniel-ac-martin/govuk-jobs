@@ -1,0 +1,53 @@
+{{<layout}}
+
+{{$journeyHeader}}
+  {{#t}}search.header{{/t}}
+{{/journeyHeader}}
+
+{{$propositionHeader}}
+  {{> partials-navigation}}
+{{/propositionHeader}}
+
+{{$header}}
+  {{#t}}search.header{{/t}}
+{{/header}}
+
+{{$maincontent}}
+  {{> partials-maincontent}}
+{{/maincontent}}
+
+{{$content}}
+  {{<partials-form-get}}
+    {{$form}}
+      {{#input-text}}search{{/input-text}}
+      {{#input-submit}}search{{/input-submit}}
+    {{/form}}
+  {{/partials-form-get}}
+  {{#query}}
+    {{#count}}
+      <h1>{{count}} records found for {{search}}:</h1>
+      <ul id="records">
+        {{#records}}
+        <li>
+          <article>
+            <a href="/applicant/{{id}}?{{querystring}}&amp;multipleResults">
+              <h2>{{name}}</h2>
+              <dl>
+                <dt>Applicant Number</dt>
+                <dd>{{id}}</dd>
+                <dt>E-mail</dt>
+                <dd>{{email}}</dd>
+                <dt>Telephone number</dt>
+                <dd>{{telephone}}</dd>
+              </dl>
+            </a>
+          </article>
+        </li>
+        {{/records}}
+      </ul>
+    {{/count}}
+    {{^count}}No records found for {{search}}{{/count}}
+  {{/query}}
+{{/content}}
+
+{{/layout}}
