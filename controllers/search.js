@@ -3,9 +3,15 @@
 const HOFStandalone = require('../lib/hof-standalone');
 const helpers = require('../lib/helpers');
 const fields = require('../fields');
-const util = require('util');
-const model = require('../models').applicant;
+const applicant = require('../models').applicant;
 const _ = require('lodash');
+
+const buildRegExp = (search) => {
+  const regex = search
+    .split(/\s+/)
+    .join('(\\s|\\s.*\\s)');
+  return new RegExp(`(^|\\s)${regex}(\\s|$)`, 'i');
+};
 
 class SearchController extends HOFStandalone {
   constructor() {
@@ -16,11 +22,14 @@ class SearchController extends HOFStandalone {
     const query = _.pick(req.query, _.keys(fields));
     const querystring = helpers.serialize(query);
     const search = req.form.values.search;
-    const terms = search.match(/^[0-9]+$/)
-      ? { id: search }
-      : { name: search };
+    const recordsPromise = search.match(/^[0-9]+$/)
+      ? applicant.get(Number(search)).then((r) => [r])
+      : applicant.searchByProperty('name', buildRegExp(search));
 
-    model.search(search)
+    // Prime HOF to render the form again (including the previous search)
+    super._locals(req, res, () => {}); // eslint-disable-line no-underscore-dangle
+
+    recordsPromise
       .then(function resolved(records) {
         res.render('search', {
           count: records && records.length,
@@ -29,7 +38,7 @@ class SearchController extends HOFStandalone {
           querystring: querystring
         });
       }, function rejected(err) {
-        if (err.name === 'NotFoundError') {
+        if (err instanceof ReferenceError) {
           res.render('search', {
             count: 0,
             records: null,
@@ -43,6 +52,15 @@ class SearchController extends HOFStandalone {
           : new Error(err), req, res, callback);
       });
     this.emit('complete', req, res);
+  }
+
+  get(req, res, callback) {
+    applicant.all()
+      .then((records) => {
+        res.locals.count = records && records.length;
+        res.locals.records = records;
+        super.get(req, res, callback);
+      });
   }
 }
 

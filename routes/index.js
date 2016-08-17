@@ -11,6 +11,6 @@ router.use('/two', (req, res) => {
   res.render('two');
 });
 
-router.use('/search', controllers.search);
+router.use(/\//, controllers.search);
 
 module.exports = router;

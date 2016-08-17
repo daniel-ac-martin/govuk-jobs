@@ -28,6 +28,11 @@ model.add({
   telephone: '07792 329 298'
 });
 model.add({
+  name: 'John James Smith',
+  email: 'john.james@smith.co.uk',
+  telephone: '07182 876 876'
+});
+model.add({
   name: 'Adam Roberts',
   email: 'adam@roberts.co.uk',
   telephone: '07876 873 234'

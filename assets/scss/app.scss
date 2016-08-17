@@ -7,7 +7,7 @@ $path: "../img/";
 @import "./validation.scss";
 
 .phase-banner {
-  @include phase-banner(alpha);
+  @include phase-banner(beta);
 }
 
 #step {

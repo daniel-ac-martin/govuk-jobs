@@ -37,7 +37,7 @@
 	},
 	"fields": {
 		"search": {
-			"label": "Name or Application number",
+			"label": "Name or Candidate number",
 			"hint": "e.g. \"John Smith\" or \"675765764\""
 		}
 	},
@@ -45,7 +45,7 @@
 		"header": "My header"
 	},
 	"search": {
-		"header": "Applicant search"
+		"header": "Job Applicants"
 	},
 	"validation": {
 		"search": {

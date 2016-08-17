@@ -23,31 +23,29 @@
       {{#input-submit}}search{{/input-submit}}
     {{/form}}
   {{/partials-form-get}}
-  {{#query}}
-    {{#count}}
-      <h1>{{count}} records found for {{search}}:</h1>
-      <ul id="records">
-        {{#records}}
-        <li>
-          <article>
-            <a href="/applicant/{{id}}?{{querystring}}&amp;multipleResults">
-              <h2>{{name}}</h2>
-              <dl>
-                <dt>Applicant Number</dt>
-                <dd>{{id}}</dd>
-                <dt>E-mail</dt>
-                <dd>{{email}}</dd>
-                <dt>Telephone number</dt>
-                <dd>{{telephone}}</dd>
-              </dl>
-            </a>
-          </article>
-        </li>
-        {{/records}}
-      </ul>
-    {{/count}}
-    {{^count}}No records found for {{search}}{{/count}}
-  {{/query}}
+  {{#count}}
+    <h1>{{count}} records found{{#search}} for {{search}}{{/search}}:</h1>
+    <ul id="records">
+      {{#records}}
+      <li>
+        <article>
+          <a href="/applicant/{{id}}?{{querystring}}&amp;multipleResults">
+            <h2>{{name}}</h2>
+            <dl>
+              <dt>Candidate Number</dt>
+              <dd>{{id}}</dd>
+              <dt>E-mail</dt>
+              <dd>{{email}}</dd>
+              <dt>Telephone number</dt>
+              <dd>{{telephone}}</dd>
+            </dl>
+          </a>
+        </article>
+      </li>
+      {{/records}}
+    </ul>
+  {{/count}}
+  {{^count}}No records found{{#search}} for {{search}}{{/search}}{{/count}}
 {{/content}}
 
 {{/layout}}
