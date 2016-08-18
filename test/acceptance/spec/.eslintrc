@@ -1,0 +1,5 @@
+extends:
+  - '../.eslintrc'
+
+rules:
+  "filenames/match-regex": [2, "^[0-9]+\\-[a-z\\-\\.]+$", true]

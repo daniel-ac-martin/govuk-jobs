@@ -4,8 +4,5 @@ coverage
 npm-debug.log
 .dockerignore
 .editorconfig
-.eslintrc
-.eslintignore
-.jscsrc
 .npmignore
 .travis.yml
