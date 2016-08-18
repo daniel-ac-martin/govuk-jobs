@@ -1,0 +1,13 @@
+extends:
+- "homeoffice/config/default"
+
+env:
+  es6: true
+
+rules:
+  "one-var": ["error", {
+      "var": "always", // Exactly one var declaration per function
+      "let": "always", // Exactly one let declaration per block
+      "const": "never" // Exactly one declarator per const declaration per block
+  }]
+  one-variable-per-var/one-variable-per-var: 0
