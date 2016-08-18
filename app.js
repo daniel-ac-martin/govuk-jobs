@@ -52,17 +52,17 @@ model.add({
     {
       start: '2010-12-23',
       finish: 'present',
-      company: 'Acorn computers limited'
+      company: 'Apple computers limited'
     },
     {
       start: '2009-03-15',
       finish: '2010-12-22',
-      company: 'International Business Machines Inc.'
+      company: 'International Business Engines Inc.'
     },
     {
       start: '2005-06-01',
       finish: '2009-03-14',
-      company: 'The Home Office'
+      company: 'The Foreign Office'
     }
   ]
 });
@@ -74,17 +74,39 @@ model.add({
     {
       start: '2010-12-23',
       finish: 'present',
-      company: 'Acorn computers limited'
+      company: 'Pineapple computers limited'
     },
     {
       start: '2009-03-15',
       finish: '2010-12-22',
-      company: 'International Business Machines Inc.'
+      company: 'International Business Organisms Inc.'
     },
     {
       start: '2005-06-01',
       finish: '2009-03-14',
-      company: 'The Home Office'
+      company: 'HMRC'
+    }
+  ]
+});
+model.add({
+  name: 'Mary Smith',
+  email: 'mary@smith.co.uk',
+  telephone: '07463 262 897',
+  workHistory: [
+    {
+      start: '2010-12-23',
+      finish: 'present',
+      company: 'Banana computers limited'
+    },
+    {
+      start: '2009-03-15',
+      finish: '2010-12-22',
+      company: 'National Business Machines Inc.'
+    },
+    {
+      start: '2005-06-01',
+      finish: '2009-03-14',
+      company: 'Department for Transport'
     }
   ]
 });
@@ -96,39 +118,39 @@ model.add({
     {
       start: '2010-12-23',
       finish: 'present',
-      company: 'Acorn computers limited'
+      company: 'Orange computers limited'
     },
     {
       start: '2009-03-15',
       finish: '2010-12-22',
-      company: 'International Business Machines Inc.'
+      company: 'International Business Mechanisms Inc.'
     },
     {
       start: '2005-06-01',
       finish: '2009-03-14',
-      company: 'The Home Office'
+      company: 'Environment Agency'
     }
   ]
 });
 model.add({
-  name: 'Harry Williams',
-  email: 'harry@williams.co.uk',
+  name: 'John Williams',
+  email: 'john@williams.co.uk',
   telephone: '07324 365 432',
   workHistory: [
     {
       start: '2010-12-23',
       finish: 'present',
-      company: 'Acorn computers limited'
+      company: 'Plum computers limited'
     },
     {
       start: '2009-03-15',
       finish: '2010-12-22',
-      company: 'International Business Machines Inc.'
+      company: 'International Business Automatons Inc.'
     },
     {
       start: '2005-06-01',
       finish: '2009-03-14',
-      company: 'The Home Office'
+      company: 'The Cabinet Office'
     }
   ]
 });
