@@ -12,5 +12,6 @@ router.use('/two', (req, res) => {
 });
 
 router.use(/\//, controllers.search);
+router.get('/applicant/:id', controllers.applicant);
 
 module.exports = router;

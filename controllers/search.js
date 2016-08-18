@@ -31,12 +31,18 @@ class SearchController extends HOFStandalone {
 
     recordsPromise
       .then(function resolved(records) {
-        res.render('search', {
-          count: records && records.length,
-          records: records,
-          query: query,
-          querystring: querystring
-        });
+        if(records.length === 1) {
+          const id = records[0].id;
+
+          res.redirect(`/applicant/${id}?${querystring}`);
+        } else {
+          res.render('search', {
+            count: records && records.length,
+            records: records,
+            query: query,
+            querystring: querystring
+          });
+        }
       }, function rejected(err) {
         if (err instanceof ReferenceError) {
           res.render('search', {
@@ -45,11 +51,11 @@ class SearchController extends HOFStandalone {
             query: query,
             querystring: querystring
           });
+        } else {
+          callback((err instanceof(Error))
+            ? err
+            : new Error(err), req, res, callback);
         }
-
-        callback((err instanceof(Error))
-          ? err
-          : new Error(err), req, res, callback);
       });
     this.emit('complete', req, res);
   }

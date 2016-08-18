@@ -29,17 +29,17 @@
       {{#records}}
       <li>
         <article>
-          <a href="/applicant/{{id}}?{{querystring}}&amp;multipleResults">
+          <a href="/applicant/{{id}}?{{querystring}}">
             <h2>{{name}}</h2>
-            <dl>
-              <dt>Candidate Number</dt>
-              <dd>{{id}}</dd>
-              <dt>E-mail</dt>
-              <dd>{{email}}</dd>
-              <dt>Telephone number</dt>
-              <dd>{{telephone}}</dd>
-            </dl>
           </a>
+          <dl>
+            <dt>Candidate number</dt>
+            <dd>{{id}}</dd>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:{{email}}">{{email}}</a></dd>
+            <dt>Telephone number</dt>
+            <dd>{{telephone}}</dd>
+          </dl>
         </article>
       </li>
       {{/records}}

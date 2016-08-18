@@ -1,0 +1,40 @@
+{{<layout}}
+
+{{$journeyHeader}}
+  {{#t}}search.header{{/t}}
+{{/journeyHeader}}
+
+{{$propositionHeader}}
+  {{> partials-navigation}}
+{{/propositionHeader}}
+
+{{$header}}
+  {{record.name}}
+{{/header}}
+
+{{$maincontent}}
+  {{> partials-maincontent}}
+{{/maincontent}}
+
+{{$content}}
+  <article>
+    <dl>
+      <dt>Candidate number</dt>
+      <dd>{{record.id}}</dd>
+      <dt>E-mail</dt>
+      <dd><a href="mailto:{{email}}">{{record.email}}</a></dd>
+      <dt>Telephone number</dt>
+      <dd>{{record.telephone}}</dd>
+      <dt>Work history</dt>
+      <dd>{{record.workHistory}}</dd>
+    </dl>
+  </article>
+  <div class="buttons">
+    <a href="/" class="button">New search</a>
+    {{#querystring}}
+      <a href="/?edit&amp;{{querystring}}" class="button">Edit search</a>
+    {{/querystring}}
+  </div>
+{{/content}}
+
+{{/layout}}

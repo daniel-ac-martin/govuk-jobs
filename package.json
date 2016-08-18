@@ -11,7 +11,7 @@
   "license": "GPL-3.0+",
   "scripts": {
     "start": "node .",
-    "stop": "pkill govjob",
+    "stop": "pkill govukj",
     "dev": "npm-run-all --parallel watch:app watch:scss watch:js watch:translations",
     "watch:app": "NODE_ENV=development nodemon .",
     "watch:scss": "nodemon -e scss -x 'npm run sass'",
@@ -21,6 +21,8 @@
     "test:unit": "NODE_ENV=test mocha ./test/unit",
     "test:acceptance": "NODE_ENV=acceptance npm start & npm run chimp; RES=$?; npm run stop; exit $RES",
     "test:ci": "npm run lint && npm run style && npm run test",
+    "chimp": "NODE_ENV=acceptance chimp --mocha --browser=phantomjs --path=./test/acceptance/spec/",
+    "chimp:dev": "NODE_ENV=acceptance chimp --mocha --browser=firefox --path=./test/acceptance/spec/",
     "lint": "eslint .",
     "style": "jscs **/*.js --config=./.jscsrc",
     "cover": "istanbul cover _mocha -- ./test/unit",
