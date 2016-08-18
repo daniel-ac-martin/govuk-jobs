@@ -26,7 +26,13 @@
       <dt>Telephone number</dt>
       <dd>{{record.telephone}}</dd>
       <dt>Work history</dt>
-      <dd>{{record.workHistory}}</dd>
+      <dd>
+        <ol>
+          {{#record.workHistory}}
+            <li>{{start}} - {{finish}}: <strong>{{company}}</strong></li>
+          {{/record.workHistory}}
+        </ol>
+      </dd>
     </dl>
   </article>
   <div class="buttons">

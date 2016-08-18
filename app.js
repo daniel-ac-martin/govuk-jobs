@@ -25,22 +25,112 @@ const model = require('./models').applicant;
 model.add({
   name: 'John Smith',
   email: 'john@smith.co.uk',
-  telephone: '07792 329 298'
+  telephone: '07792 329 298',
+  workHistory: [
+    {
+      start: '2010-12-23',
+      finish: 'present',
+      company: 'Acorn computers limited'
+    },
+    {
+      start: '2009-03-15',
+      finish: '2010-12-22',
+      company: 'International Business Machines Inc.'
+    },
+    {
+      start: '2005-06-01',
+      finish: '2009-03-14',
+      company: 'The Home Office'
+    }
+  ]
 });
 model.add({
   name: 'John James Smith',
   email: 'john.james@smith.co.uk',
-  telephone: '07182 876 876'
+  telephone: '07182 876 876',
+  workHistory: [
+    {
+      start: '2010-12-23',
+      finish: 'present',
+      company: 'Acorn computers limited'
+    },
+    {
+      start: '2009-03-15',
+      finish: '2010-12-22',
+      company: 'International Business Machines Inc.'
+    },
+    {
+      start: '2005-06-01',
+      finish: '2009-03-14',
+      company: 'The Home Office'
+    }
+  ]
+});
+model.add({
+  name: 'Mark James John Smith',
+  email: 'mark.james.john@smith.co.uk',
+  telephone: '07622 346 823',
+  workHistory: [
+    {
+      start: '2010-12-23',
+      finish: 'present',
+      company: 'Acorn computers limited'
+    },
+    {
+      start: '2009-03-15',
+      finish: '2010-12-22',
+      company: 'International Business Machines Inc.'
+    },
+    {
+      start: '2005-06-01',
+      finish: '2009-03-14',
+      company: 'The Home Office'
+    }
+  ]
 });
 model.add({
   name: 'Adam Roberts',
   email: 'adam@roberts.co.uk',
-  telephone: '07876 873 234'
+  telephone: '07876 873 234',
+  workHistory: [
+    {
+      start: '2010-12-23',
+      finish: 'present',
+      company: 'Acorn computers limited'
+    },
+    {
+      start: '2009-03-15',
+      finish: '2010-12-22',
+      company: 'International Business Machines Inc.'
+    },
+    {
+      start: '2005-06-01',
+      finish: '2009-03-14',
+      company: 'The Home Office'
+    }
+  ]
 });
 model.add({
   name: 'Harry Williams',
   email: 'harry@williams.co.uk',
-  telephone: '07324 365 432'
+  telephone: '07324 365 432',
+  workHistory: [
+    {
+      start: '2010-12-23',
+      finish: 'present',
+      company: 'Acorn computers limited'
+    },
+    {
+      start: '2009-03-15',
+      finish: '2010-12-22',
+      company: 'International Business Machines Inc.'
+    },
+    {
+      start: '2005-06-01',
+      finish: '2009-03-14',
+      company: 'The Home Office'
+    }
+  ]
 });
 
 if (config.env !== 'acceptance') {
