@@ -1,9 +1,9 @@
 'use strict';
 
-var toolkit = require('hof').toolkit;
-var helpers = toolkit.helpers;
-var progressiveReveal = toolkit.progressiveReveal;
-var formFocus = toolkit.formFocus;
+const toolkit = require('hof').toolkit;
+const helpers = toolkit.helpers;
+const progressiveReveal = toolkit.progressiveReveal;
+const formFocus = toolkit.formFocus;
 
 helpers.documentReady(progressiveReveal);
 helpers.documentReady(formFocus);

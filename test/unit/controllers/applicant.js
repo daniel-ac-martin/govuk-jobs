@@ -9,7 +9,6 @@ const applicant = proxyquire('../../../controllers/applicant', {
     }
   }
 });
-const _ = require('lodash');
 
 describe('controllers/applicant.js', () => {
   it('is a standard middleware', () => {
@@ -29,7 +28,8 @@ describe('controllers/applicant.js', () => {
       applicant(req, res, callback);
     });
 
-    it('raises a ReferenceError', () => callback.should.have.been.calledWith(new ReferenceError('The parameter \'id\' was not defined')));
+    it('raises a ReferenceError', () =>
+      callback.should.have.been.calledWith(new ReferenceError('The parameter \'id\' was not defined')));
   });
 
   describe('when called with a non-integer string \'id\' parameter on the request', () => {
@@ -44,7 +44,8 @@ describe('controllers/applicant.js', () => {
       applicant(req, res, callback);
     });
 
-    it('raises a TypeError', () => callback.should.have.been.calledWith(new TypeError('The parameter \'id\' was not an integer')));
+    it('raises a TypeError', () =>
+      callback.should.have.been.calledWith(new TypeError('The parameter \'id\' was not an integer')));
   });
 
   describe('when called with an \'id\' parameter on the request', () => {
@@ -66,7 +67,8 @@ describe('controllers/applicant.js', () => {
       });
 
       it('does not call the next middleware', () => callback.should.not.have.been.called);
-      it('renders the \'applicant\' view', () => render.should.have.been.calledWith('applicant', {record: record, querystring: ''}));
+      it('renders the \'applicant\' view', () =>
+        render.should.have.been.calledWith('applicant', {record: record, querystring: ''}));
     });
 
     describe('and the model\'s promise rejects', () => {
