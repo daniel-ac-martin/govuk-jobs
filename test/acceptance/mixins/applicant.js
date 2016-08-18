@@ -17,7 +17,7 @@ module.exports = function(target) {
     const title = this.getTitle();
     const content = this.getText('main');
 
-    if(applicant !== undefined) {
+    if (applicant !== undefined) {
       title.should.contain(applicant);
       content.should.contain(applicant);
     }

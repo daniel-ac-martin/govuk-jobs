@@ -24,6 +24,7 @@
     "chimp": "NODE_ENV=acceptance chimp --mocha --browser=phantomjs --path=./test/acceptance/spec/",
     "chimp:dev": "NODE_ENV=acceptance chimp --mocha --browser=firefox --path=./test/acceptance/spec/",
     "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "style": "jscs **/*.js --config=./.jscsrc",
     "cover": "istanbul cover _mocha -- ./test/unit",
     "check-coverage": "istanbul check-coverage --statement 0 --branch 0 --function 0 --line 0",

@@ -31,7 +31,7 @@ class SearchController extends HOFStandalone {
 
     recordsPromise
       .then(function resolved(records) {
-        if(records.length === 1) {
+        if (records.length === 1) {
           const id = records[0].id;
 
           res.redirect(`/applicant/${id}?${querystring}`);

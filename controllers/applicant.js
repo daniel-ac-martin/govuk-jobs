@@ -10,9 +10,9 @@ module.exports = (req, res, next) => {
 
   const id = req.params.id;
 
-  if(id === undefined) {
+  if (id === undefined) {
     next(new ReferenceError('The parameter \'id\' was not defined'), req, res);
-  } else if(!id.match(/^[0-9]+$/)) {
+  } else if (!id.match(/^[0-9]+$/)) {
     next(new TypeError('The parameter \'id\' was not an integer'), req, res);
   } else {
     applicant.get(Number(req.params.id))
