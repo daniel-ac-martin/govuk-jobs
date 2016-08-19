@@ -52,8 +52,8 @@ module.exports = {
 
     return new Promise((resolve) => {
       const results = store
-        .filter(_.matches(terms))
-        .map(addId);
+        .map(addId)
+        .filter(_.matches(terms));
 
       resolve(results);
     });
@@ -70,8 +70,8 @@ module.exports = {
 
     return new Promise((resolve) => {
       const results = store
-        .filter(propertyMatchesRegExp(property, regexp))
-        .map(addId);
+        .map(addId)
+        .filter(propertyMatchesRegExp(property, regexp));
 
       resolve(results);
     });
